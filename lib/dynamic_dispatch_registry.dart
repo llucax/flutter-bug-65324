@@ -8,35 +8,33 @@
 /// xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 /// asdladkadlaldskalsdkalsdka2
 class DynamicDispatchRegistry<B, T extends Function> {
-  /// The map from a concrete [Type] to a [T] function.
   final _registry = <Type, T>{};
 
-  /// Constructs and empty registry.
   DynamicDispatchRegistry();
 
-  /// True if the registry has no registered functions.
+  // removing this getter will also fix the issue, no matter how I enlarge or
+  // change the "problematic comments"
   bool get isEmpty => _registry.isEmpty;
 
-  /// Registers a [function] for [type].
-  ///
-  /// If [type] was already registered, it is replaced and the old registered
-  /// [fucntion] is returned. Otherwise it returns null.
+  // Same here, removing the last 2, fixes the issue, also seems length-related.
+
+  /// xxaasdadadadasdadadadadasdasa2
   T register(Type type, T function) {
     final old = _registry[type];
     _registry[type] = function;
     return old;
   }
 
-  /// Removes the [T] function registered for [type].
-  ///
-  /// Returns the registered [T] function for [type] or null if there was no
-  /// function registered.
   T unregister(Type type) {
     return _registry.remove(type);
   }
 
-  /// Gets the registered function [T] for [instance.runtimeType].
+  // This comment is much more subtle, I could only replace real words with
+  // gibberish, but when changing the spaces it also fixes the issue, so it
+  // doesn't seem to be exclusively length-related in this case.
+
+  /// asda asd dgfdgdfgdf fnhgghjh hjj ghg ghjghjgjgjghjgjghjgjhg.
   ///
-  /// If there is no registered function, then null is returned.
+  /// xx dfdfd df wq xxxxxxx2
   T getFunction(B instance) => _registry[instance.runtimeType];
 }
