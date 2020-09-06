@@ -1,9 +1,7 @@
 /// A registry to enabled dynamic dispatch based on [Type.runtimeType].
 ///
 /// This registry serves as a way to have dynamic dispatch to call functions
-/// based on the concrete type of objects with a base class [B]. Types can be
-/// registered with an assigned function of type [T] and then the specific
-/// function can be obtained via [getFunction()].
+/// based on the concrete type of objects
 class DynamicDispatchRegistry<B, T extends Function> {
   /// The map from a concrete [Type] to a [T] function.
   final _registry = <Type, T>{};

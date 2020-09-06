@@ -1,38 +1,34 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart' show PlatformException;
 
 import 'controller_registry.dart';
-import 'medium_player_controller.dart';
+import 'medium_player_controller.dart'; // removing this import fixes the issue
 
 class MediaPlayer extends StatefulWidget {
-  final Uri medium;
   final void Function(BuildContext) onMediaStopped;
-  final ControllerRegistry registry;
 
   const MediaPlayer({
-    @required this.medium,
     this.onMediaStopped,
-    this.registry,
-    Key key,
-  })  : assert(medium != null),
-        super(key: key);
+  });
 
   @override
   MediaPlayerState createState() => MediaPlayerState();
 }
 
-/// A state for a [MediaPlayer].
 class MediaPlayerState extends State<MediaPlayer> {
   @override
   void initState() {
     super.initState();
-    final create = widget.registry.getFunction(widget.medium);
-    create(widget.medium, onMediaFinished: widget.onMediaStopped);
+    final create = ControllerRegistry().getFunction('a');
+    create(Uri.parse('a'), onMediaFinished: widget.onMediaStopped);
   }
 
-  /// Builds the UI for this widget.
   @override
-  Widget build(BuildContext context) {
-    return Container(key: widget.key);
-  }
+  Widget build(BuildContext context) => null;
+  // Converting this function to use the {} syntax or returning a Container()
+  // sometimes fixes the issue, sometimes it doesn't. If seems to be very
+  // flaky.
+  //@override
+  //Widget build(BuildContext context) {
+  //  return Container();
+  //}
 }
