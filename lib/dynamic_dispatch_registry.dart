@@ -1,7 +1,12 @@
-/// A registry to enabled dynamic dispatch based on [Type.runtimeType].
+// Here is where this gets REALLY WEIRD: Removing the last character of the
+// class comment fixes the issue. It seems to be tied to the length of the
+// comment, as I replaced the last character with some others and it still
+// breaks the compiler. Same adding more characters to the comment.
+
+/// asdasdadasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasda.
 ///
-/// This registry serves as a way to have dynamic dispatch to call functions
-/// based on the concrete type of objects
+/// xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+/// asdladkadlaldskalsdkalsdka2
 class DynamicDispatchRegistry<B, T extends Function> {
   /// The map from a concrete [Type] to a [T] function.
   final _registry = <Type, T>{};
