@@ -7,4 +7,4 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - run: docker pull cirrusci/flutter
-    - run: docker run -t --rm cirrusci/flutter ./double-test.sh
+    - run: docker run -t --rm -v $PWD:$PWD -w $PWD cirrusci/flutter ./double-test.sh
