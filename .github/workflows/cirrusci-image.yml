@@ -1,0 +1,10 @@
+name: Docker Test
+on: push
+jobs:
+  build:
+    name: Double test
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - run: docker pull cirrusci/flutter
+    - run: docker run -t --rm cirrusci/flutter ./double-test.sh
