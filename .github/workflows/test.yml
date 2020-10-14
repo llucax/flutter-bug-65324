@@ -4,6 +4,7 @@ jobs:
   test:
     name: test
     strategy:
+      fail-fast: false
       matrix:
         flutter_version: ["1.22.1", "1.20.4", "beta"]
 
