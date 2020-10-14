@@ -18,5 +18,6 @@ jobs:
     - uses: subosito/flutter-action@v1
       with:
         flutter-version: ${{ matrix.flutter_version }}
+        channel: dev
 
     - run: flutter test
