@@ -6,7 +6,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        flutter_version: [ "1.17", "1.20", "1.22", "1.23" ]
+        flutter_channel: [ "stable", "beta", "dev" ]
 
     runs-on: ubuntu-latest
 
@@ -17,8 +17,7 @@ jobs:
         java-version: '12.x'
     - uses: subosito/flutter-action@v1
       with:
-        flutter-version: ${{ matrix.flutter_version }}
-        channel: stable
+        channel: ${{ matrix.flutter_channel }}
 
     - run: flutter --version
 
