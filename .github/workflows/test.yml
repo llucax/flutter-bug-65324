@@ -20,4 +20,6 @@ jobs:
         flutter-version: ${{ matrix.flutter_version }}
         channel: stable
 
+    - run: flutter --version
+
     - run: flutter test
