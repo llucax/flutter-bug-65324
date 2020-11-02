@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart' show BuildContext, GlobalKey, Key;
+import 'package:flutter_test/flutter_test.dart';
 
 import 'package:bug/controller_registry.dart';
 import 'package:bug/media_player.dart'; // Removing this import fixed the issue
@@ -6,7 +7,9 @@ import 'package:bug/media_player.dart'; // Removing this import fixed the issue
 // removing the async fixes the issue
 void main() async {
   // removing this instantiation fixes the issue
-  FakeMediumPlayerController();
+  test("test", () {
+    FakeMediumPlayerController();
+  });
 }
 
 // Removing this class fixes the issue
